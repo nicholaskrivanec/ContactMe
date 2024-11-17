@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   server: {
@@ -10,10 +10,20 @@ export default defineConfig({
     strictPort: true,
     hmr: {
       timeout: 10000,
-      path: '@vite'
+      path: '@vite',
     },
     watch: {
       ignored: ["**/.npm/**", "**/node_modules/**"],
     },
-  }
-})
+  },
+  build: {
+    rollupOptions: {
+      input: path.resolve(__dirname, 'index.html'), // Ensure Vite uses the correct HTML entry point
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'), // Optional alias for easier imports
+    },
+  },
+});

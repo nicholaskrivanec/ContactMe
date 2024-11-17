@@ -2,36 +2,41 @@ require('dotenv').config({ path: './w3s-dynamic-storage/.env' });
 const path = require('path');
 const express = require('express');
 const { saveMessage, fetchMessages } = require('./db');
-
 const app = express();
 
-app.use(express.static('dist'));
+// Check if we are in development mode
+const isDev = process.env.NODE_ENV === 'development';
+
+// Middleware for parsing JSON
 app.use(express.json());
 
+if (isDev) {
+  // Development mode: assume Vite dev server is running
+  console.log('Development mode: Ensure Vite is running on http://localhost:8000');
+} else {
+  // Production mode: serve static files from 'dist'
+  app.use(express.static(path.join(__dirname, '../../dist')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../../dist', 'index.html'));
+  });
+}
+
+// Backend API routes
 app.post('/api/message', async (req, res) => {
   const status = await saveMessage(req.body);
   const statusCode = status ? 201 : 400;
-
   res.status(statusCode).send();
 });
 
 app.get('/api/messages', async (req, res) => {
   const messages = await fetchMessages(20);
-
   res.send({ messages });
 });
 
-const clientApp = express();
-clientApp.use(express.static('dist'));
-clientApp.use(express.json());
+// Start the backend server
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => console.log(`Backend server running on http://localhost:${PORT}`));
 
-clientApp.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../../dist', 'index.html'));
-});
-
-
-app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}!`));
-
-if (process.env.NODE_ENV !== 'development') {
-  clientApp.listen(8000, () => console.log('client listening on port 8000'));
+if (isDev) {
+  console.log('Note: Use http://localhost:8000 to access the frontend served by Vite in development.');
 }

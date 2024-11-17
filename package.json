@@ -4,9 +4,10 @@
   "description": "A simple node app built on W3Schools Spaces",
   "main": "src/server/index.js",
   "scripts": {
-    "start": "vite build && node src/server/index.js",
+    "start": "node src/server/index.js",
     "server": "nodemon src/server/index.js",
-    "dev": "npm run server 2>&1 & vite dev < /dev/null"
+    "dev": "npm run server 2>&1 & vite dev < /dev/null",
+    "build": "vite build"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
