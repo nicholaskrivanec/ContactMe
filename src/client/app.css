@@ -1,0 +1,171 @@
+body {
+  margin: 0;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  width: 60%;
+  margin: auto;
+}
+
+.title {
+  font-size: 30px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 80%;
+  }
+}
+
+input[type=text], input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical
+}
+
+.button {
+  display: block;
+  margin: auto;
+  padding: 8px 16px;
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  font-size: 18px;
+  width: 200px;
+  border-radius: 25px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.button:disabled {
+  background-color: #d9d9d9;
+  cursor: not-allowed;
+}
+
+.footer {
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+.send-icon {
+  width: 60px;
+}
+
+.img {
+  background-color: #262626;
+  width: 60px;
+  height: 60px;
+}
+
+.message-container {
+  height: 250px;
+  margin-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+}
+
+.text h2, .text p {
+  margin: 0;
+}
+
+.text h2 {
+  font-size: 40px;
+}
+
+.text p {
+  font-size: 18px;
+}
+
+.send-button {
+  display: block;
+  padding: 8px 16px;
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  font-size: 16px;
+  width: 150px;
+  border-radius: 25px;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .message-container {
+    margin-top: 15vh;
+  }
+}
+
+.simple-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  min-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.simple-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.simple-table th,
+.simple-table td {
+    padding: 12px 15px;
+}
+
+.simple-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.simple-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.error {
+  color: red;
+}
+
+.error::before {
+  content: '❌ ';
+}
+
+.close-button {
+  display: block;
+  padding: 8px 16px;
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  font-size: 16px;
+  width: 150px;
+  border-radius: 25px;
+  cursor: pointer;
+  white-space: nowrap;
+  margin: 0 auto;
+  margin-top: 20px;
+}

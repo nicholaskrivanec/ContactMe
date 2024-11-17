@@ -1,0 +1,46 @@
+{
+  "name": "react-template",
+  "version": "1.0.0",
+  "description": "A simple node app built on W3Schools Spaces",
+  "main": "src/server/index.js",
+  "scripts": {
+    "start": "vite build && node src/server/index.js",
+    "server": "nodemon src/server/index.js",
+    "dev": "npm run server 2>&1 & vite dev < /dev/null"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "better-sqlite3": "^11.5.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "@vitejs/plugin-react": "^4.3.3",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^9.2.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^9.1.0",
+    "css-loader": "^7.1.2",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.6.3",
+    "nodemon": "^3.1.7",
+    "style-loader": "^4.0.0",
+    "url-loader": "^4.1.1",
+    "vite": "^5.4.11",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  }
+}
